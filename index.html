@@ -6,24 +6,31 @@
   <title>Weather Skeleton</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
+    * {
+      font-family: "Roboto", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
+      font-variation-settings:
+        "wdth" 100;
+    }
+
     body {
       background: #f0f4f8;
       display: flex;
       justify-content: center;
       padding: 20px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-        Cantarell, sans-serif;
     }
 
     .container {
       width: 100%;
       max-width: 360px;
       background: white;
-      border-radius: 20px;
+      border-radius: 25px;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       height: 875px;
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -31,64 +38,78 @@
 
     .lupa {
       position: absolute;
-      top: 10px;
-      left: 350px;
-      font-size: 40px;
+      top: 37px;
+      left: 340px;
+      font-size: 35px;
       cursor: pointer;
     }
 
     .stroki {
       position: absolute;
-      top: 20px;
-      right: 350px;
-      font-size: 30px;
+      top: 45px;
+      left: 30px;
+      font-size: 25px;
       cursor: pointer;
     }
 
     h3.main-location {
       text-align: center;
-      margin-bottom: 10px;
+      margin-top: 30px;
+      font-size: 18px;
     }
 
     h3.today-label {
-      margin-top: 10px;
+      margin-top: 20px;
       margin-bottom: 10px;
+      font-size: 17px;
     }
 
     .box {
-      background: #66a6f5;
+      background: #3a8eee;
       border-radius: 20px;
-      padding: 10px;
+      padding: 20px;
       color: white;
-      margin-bottom: 10px;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      position: relative;
+      justify-content: space-between;
+      height: 165px;
+      background: linear-gradient(to right, #78baf4, #3a8eee);
     }
 
-    .box>div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .box h3,
+    .box h5,
+    .box p {
+      margin: 4px 0;
+      font-size: 15px;
+      font-weight: 200;
     }
 
     .box p.status {
       border-radius: 20px;
-      border: 2px solid #dbd7d7;
+      border: 1px solid white;
       text-align: center;
-      width: 80px;
+      width: 90px;
       padding: 4px 0;
-      margin: 0;
+      font-size: 13px;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .box p.temp-large {
+      display: flex;
       font-size: 40px;
-      margin: 10px 0 0 0;
+      margin-top: 5px;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .box p.details {
-      margin-top: 40px;
+      display: flex;
+      font-size: 13px;
+      margin-top: 5px;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .row {
@@ -99,25 +120,30 @@
     }
 
     .small-box {
-      flex: 1;
-      background: #cadef5;
       border-radius: 15px;
-      height: 100px;
       min-width: 50px;
+      height: 95px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 10px;
       color: #333;
+      background-color: #dcebfc;
+      border: 1px solid #59b1ec;
+    }
+
+    .small-box.active {
+      background-color: #4a9eff;
+      color: white;
+      background: linear-gradient(to right, #93beee, #4a9eff);
+      border-width: 0px;
     }
 
     .day-container {
       max-height: 375px;
       overflow-y: auto;
-      padding-right: 5px;
       scrollbar-width: none;
-      margin-top: 0;
     }
 
     .day-container::-webkit-scrollbar {
@@ -127,49 +153,73 @@
     .day-row {
       display: flex;
       justify-content: space-between;
-      background: #e0eaf6;
+      align-items: center;
+      background: #dcebfc;
       border-radius: 10px;
       height: 60px;
       margin-bottom: 10px;
       padding: 0 10px;
-      align-items: center;
+      font-size: 15px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
+
 
     .time2 {
-      font-weight: bold;
+      font-weight: 400;
+      margin-top: 20px;
     }
 
+    .time2 p {
+      margin-top: 2px;
+      font-size: 13px;
+      color: #777;
+    }
 
-    @media (max-width: 480px) {
-      .container {
-        padding: 15px;
-      }
+    .icon2 {
+      flex: 0 0 20%;
+      text-align: center;
+      font-size: 24px;
+    }
 
-      .box {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 10px;
-      }
+    .temp2 {
+      flex: 0 0 20%;
+      text-align: right;
+      font-size: 16px;
+    }
 
-      .lupa,
-      .stroki {
-        font-size: 30px;
-      }
+    button {
+      font-size: 14px;
+      padding: 6px;
+      border-radius: 20px;
+      border: 0;
+      width: 110px;
+      margin-top: 10px;
+      background: white;
+      color: #4a9eff;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-      .small-box {
-        min-width: 60px;
-        height: 90px;
-        padding: 8px;
-      }
+    .right-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
 
-      .day-row {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 10px;
-      }
+    .details {
+      margin-right: 20px;
+    }
+
+    .icon {
+      margin-top: 5px;
+      margin-bottom: 5px;
     }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -177,131 +227,120 @@
     <div class="lupa">⌕</div>
     <div class="stroki">☰</div>
 
-    <h3 class="main-location">Bandung.Indonesia</h3>
+    <h3 class="main-location"><b>Bandung.</b> Indonesia</h3>
 
     <div class="box">
       <div>
-        <h5 style="margin-left:3px">Today</h5>
-        <h3 style="margin: 0 0 6px 0;">Saturday,</h3>
-        <h3 style="margin: 0 0 6px 0;">December 18th 2021</h3>
-        <h3 style="margin: 0 0 4px 0;">9:00</h3>
-        <button onclick="togglePopup()"
-          style="font-size: 15px; padding: 6px; border-radius: 20px; border: 0; width: 110px; margin-top: 10px;">
-          See Details &gt;
-        </button>
-
-        <div id="popup"
-          style="display: none; width: 150px; height: 100px; background: white; border: 1px solid black; position:absolute; bottom: 15px; right: 10px;">
-        </div>
+        <h6 style="margin-top: 6px;">Today</h6>
+        <h3 style="margin-top: -12px;">Saturday,</h3>
+        <h3 style="margin-top: 5px;">December 18th 2021</h3>
+        <h3 style="margin-top: 9px;">09:00</h3>
+        <button style="color:#393939;font-weight: 200;margin-top: 13px;">See Details ></button>
       </div>
-
-      <script>
-        function togglePopup() {
-          const popup = document.getElementById('popup');
-          popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-        }
-      </script>
-
-      <div style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center;">
-        <p class="status" style="margin-top: 5px;;">🌥️Rainy</p>
-        <p class="temp-large">27℃</p>
-        <p class="details" style="margin-top: 5px;">🌢 75% ༄10km/h</p>
+      <div class="right-info">
+        <p class="status">🌧️ Rainy</p>
+        <p class="temp-large" style="font-size: 40px;">27°C</p>
+        <p class="details">💧 75% 🌬️ 10km/h</p>
       </div>
     </div>
-
 
     <h3 class="today-label">Today</h3>
 
     <div class="row">
-      <div class="small-box" style="background-color: #66a6f5; color: #e0eaf6;">
-        <div class="time" style="font-size: 20px;">09:00</div>
-        <div class="icon" style="font-size: 40px;">🌧️</div>
-        <div class="temp">28℃</div>
-      </div>
-      <div class="small-box">
-        <div class="time" style="font-size: 20px;">12:00</div>
-        <div class="icon" style="font-size: 40px;">⛅</div>
-        <div class="temp">28℃</div>
-      </div>
-      <div class="small-box">
-        <div class="time" style="font-size: 20px;">15:00</div>
-        <div class="icon" style="font-size: 40px;">🌦️</div>
+      <div class="small-box active">
+        <div class="time">09:00</div>
+        <div class="icon">🌧️</div>
         <div class="temp">27℃</div>
       </div>
       <div class="small-box">
-        <div class="time" style="font-size: 20px;">18:00</div>
-        <div class="icon" style="font-size: 40px;">⛅</div>
+        <div class="time">12:00</div>
+        <div class="icon">🌧️</div>
+        <div class="temp">28℃</div>
+      </div>
+      <div class="small-box">
+        <div class="time">15:00</div>
+        <div class="icon" style="margin-top: 5px;margin-bottom: 5px;">🌤️</div>
+        <div class="temp">28℃</div>
+      </div>
+      <div class="small-box">
+        <div class="time">18:00</div>
+        <div class="icon">☁️</div>
         <div class="temp">27℃</div>
       </div>
       <div class="small-box">
-        <div class="time" style="font-size: 20px;">21:00</div>
-        <div class="icon" style="font-size: 40px;">⛈️</div>
+        <div class="time">21:00</div>
+        <div class="icon">🌙</div>
         <div class="temp">29℃</div>
       </div>
     </div>
 
-
     <div class="day-container">
       <div class="day-row">
-        <div class="time2"><b>Sunday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 19th 2021</p>
+        <div class="time2">Sunday
+          <p>Dec 19th 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">🌧️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">28℃</div>
+        <div class="icon2">🌧️</div>
+        <div class="temp2">28℃</div>
       </div>
       <div class="day-row">
-        <div class="time2"><b>Monday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 20th 2021</p>
+        <div class="time2">Monday
+          <p>Dec 20th 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">⛈️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">29℃</div>
+        <div class="icon2">⛈️</div>
+        <div class="temp2">29℃</div>
       </div>
       <div class="day-row">
-        <div class="time2"><b>Tuesday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 21th 2021</p>
+        <div class="time2">Tuesday
+          <p>Dec 21st 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">⛈️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">27℃</div>
+        <div class="icon2">⛈️</div>
+        <div class="temp2">27℃</div>
       </div>
       <div class="day-row">
-        <div class="time2"><b>Wednesday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 22th 2021
+        <div class="time2">Wednesday
+          <p>Dec 22nd 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">🌧️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">28℃</div>
+        <div class="icon2">🌧️</div>
+        <div class="temp2">28℃</div>
       </div>
       <div class="day-row">
-        <div class="time2"><b>Thursday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 23th 2021</p>
+        <div class="time2">Thursday
+          <p>Dec 23rd 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">🌧️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">28℃</div>
+        <div class="icon2">🌧️</div>
+        <div class="temp2">28℃</div>
       </div>
       <div class="day-row">
-        <div class="time2"><b>Friday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 24th 2021</p>
+        <div class="time2">Friday
+          <p>Dec 24th 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">🌧️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">26℃</div>
+        <div class="icon2">🌧️</div>
+        <div class="temp2">26℃</div>
       </div>
       <div class="day-row">
-        <div class="time2"><b>Saturday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 25th 2021</p>
+        <div class="time2">Saturday
+          <p>Dec 25th 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">🌧️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">27℃</div>
+        <div class="icon2">🌧️</div>
+        <div class="temp2">27℃</div>
       </div>
       <div class="day-row">
-        <div class="time2"><b>Sunday</b>
-          <p style="margin-top: 3px; font-size: 15px;">Dec 26th 2021</p>
+        <div class="time2">Sunday
+          <p>Dec 26th 2021</p>
         </div>
-        <div class="icon2" style="font-size: 30px; margin-top: 5px; margin-right: 55px;">🌧️</div>
-        <div class="temp2" style="font-size: 20px; margin-top: 9px;">22℃</div>
+        <div class="icon2">🌧️</div>
+        <div class="temp2">22℃</div>
+      </div>
+
+      <div class="day-row">
+        <div class="time2">Friday
+          <p>Dec 27th 2021</p>
+        </div>
+        <div class="icon2">🌧️</div>
+        <div class="temp2">25℃</div>
       </div>
     </div>
   </div>
 </body>
-
-</html>
 
 </html>
