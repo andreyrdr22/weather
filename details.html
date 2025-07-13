@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      font-family: sans-serif;
+    }
+
+    .container {
+      position: relative;
+      background: rgb(255, 255, 255);
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      height: 850px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 35px;
+      cursor: pointer;
+    }
+
+    .title {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: rgb(117, 115, 115);
+    }
+
+    .subtitle {
+      margin-top: 30px;
+      font-size: 15px;
+      color: rgb(117, 115, 115);
+    }
+
+    .location {
+      margin-top: 20px;
+      font-size: 20px;
+      color: rgb(25, 25, 25);
+    }
+
+    .location span {
+      font-weight: bold;
+    }
+
+    .box {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      color: rgb(0, 0, 0);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 300px;
+      margin-top: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .left-info h4 {
+      margin: 5px 0;
+    }
+
+    .right-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .weather-icon {
+      font-size: 40px;
+    }
+
+    .weather-btn {
+      margin-top: 10px;
+      border-radius: 100px;
+      width: 100px;
+      height: 30px;
+      border: solid 1px;
+      border-color: hsl(212, 87%, 77%);
+      background-color: hsl(212, 76%, 82%);
+      color: #000;
+      font-size: 13px;
+      cursor: default;
+    }
+
+    .row {
+      background-color: hsl(212, 87%, 77%);
+      width: 300px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+
+      overflow-x: auto;
+      margin-top: 40px;
+      padding: 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      text-align: center;
+      gap: 5px;
+
+    }
+
+    .smoll-box {
+      background-color: #dcebfc;
+      width: 120px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      overflow-x: auto;
+      margin-top: 40px;
+      padding: 20px;
+      border-radius: 20px;
+      font-size: 16px;
+      margin-right: 180px;
+      border-width: 5px;
+      border-color: #59b1ec;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="back" onclick="history.back()">‹</div>
+    <div class="title">Details</div>
+    <div class="subtitle">📍 Your Location Now</div>
+    <div class="location"><span>Bandung,</span> Indonesia</div>
+
+    <div class="box">
+      <div class="left-info">
+        <h4>Saturday</h4>
+        <h4 style="font-weight: normal;">December 18th, 2021</h4>
+        <h4 style="font-weight: normal;">09:00</h4>
+      </div>
+      <div class="right-info">
+        <div class="weather-icon">🌧️</div>
+        <button class="weather-btn">☁️ Drizzling</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div style="margin-right: 180px;">🌡️ <b>Temperature</b></div>
+      <div style="margin-top: 7px; font-size: small; color: rgb(117, 115, 115); text-align: left;">
+        More temperate than<br>yesterday
+      </div>
+      <div style="margin-top: -55px;text-align: right;font-size: 40px;margin-right: 50px;">27<sup
+          style="font-size: 20px;gap: 60px;">°C</sup></div>
+      <div style="text-align: right;margin-top:-55px;font-size: 35px;color:rgb(57, 253, 54)">⬈</div>
+    </div>
+    <div class="smoll-box">
+      <div> 💧 <b style="margin-left:8px">Humidity</b></div>
+      <div style="margin-top: 10px;font-size: 25px;">75%</div>
+      <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
+      <div style="font-size: small;color:gray;margin-top: 8px;">Less humid than <br>yesterday</div>
+    </div>
+    <div class="smoll-box" style="margin-top: 20px;">
+      <div> 💧 <b style="margin-left:8px">Rain Amount</b></div>
+      <div style="margin-top: 10px;font-size: 25px;">0.02 in</div>
+      <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
+      <div style="font-size: small;color:gray;margin-top: 8px;">More rain amount <br>than yesterday</div>
+    </div>
+    <div class="smoll-box" style="margin-top: -300px; margin-right: -190px;">
+      <div> 💧 <b style="margin-left:8px">Wind</b></div>
+      <div style="margin-top: 10px;font-size: 25px;">2 km/h</div>
+      <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
+      <div style="font-size: small;color:gray;margin-top: 8px;">More windy than <br>yesterday</div>
+    </div>
+    <div class="smoll-box" style="margin-top: 20px;margin-left: 370px;">
+      <div> 💧 <b style="margin-left:8px">UV Index</b></div>
+      <div style="margin-top: 10px;font-size: 25px;">0.02 in</div>
+      <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
+      <div style="font-size: small;color:gray;margin-top: 8px;">More rain amount <br>than yesterday</div>
+    </div>
+    
+    
+</body>
+
+</html>
