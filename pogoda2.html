@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Weather</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+        }
+
+        body {
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 360px;
+            background: white;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 875px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lupa {
+            position: absolute;
+            top: 37px;
+            left: 340px;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        .stroki {
+            position: absolute;
+            top: 45px;
+            left: 30px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        h3.main-location {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        h3.today-label {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        .box {
+            background: linear-gradient(to right, #78baf4, #3a8eee);
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .box h3,
+        .box h6,
+        .box p {
+            margin: 4px 0;
+        }
+
+        .box p.status {
+            border-radius: 20px;
+            border: 1px solid white;
+            text-align: center;
+            width: 90px;
+            padding: 4px 0;
+            font-size: 13px;
+        }
+
+        .box p.temp-large {
+            font-size: 40px;
+            margin-top: 5px;
+        }
+
+        .box p.details {
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+
+        .small-box {
+            border-radius: 15px;
+            min-width: 50px;
+            height: 95px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            color: #333;
+            background-color: #dcebfc;
+            border: 1px solid #59b1ec;
+        }
+
+        .small-box.active {
+            background: linear-gradient(to right, #93beee #4a9eff);
+            color: white;
+            border: none;
+        }
+
+        .day-container {
+            max-height: 375px;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        .day-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .day-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #dcebfc;
+            border-radius: 10px;
+            height: 60px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+            font-size: 15px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .time2 {
+            font-weight: 400;
+            margin-top: 20px;
+        }
+
+        .time2 p {
+            margin-top: 2px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .icon2 {
+            flex: 0 0 20%;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .temp2 {
+            flex: 0 0 20%;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        button,
+        .button-link {
+            font-size: 14px;
+            padding: 6px;
+            border-radius: 20px;
+            border: 0;
+            width: 110px;
+            margin-top: 10px;
+            background: white;
+            color: #4a9eff;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .right-info {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .icon {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="lupa">⌕</div>
+        <div class="stroki">☰</div>
+
+        <h3 class="main-location"><b>Bandung.</b> Indonesia</h3>
+
+        <div class="box">
+            <div>
+                <h6 style="margin-top: 6px;">Today</h6>
+                <h3 style="margin-top: 12px;">Saturday,</h3>
+                <h3 style="margin-top: 5px;">December 18th 2021</h3>
+                <h3 style="margin-top: 9px;">09:00</h3>
+                <button onclick="window.location.href='details.html'"
+                    style="color:#393939;font-weight: 200;margin-top: 13px;"><b>See Details ᐅ</b></button>
+
+
+            </div>
+            <div class="right-info">
+                <p class="status">🌧️ Rainy</p>
+                <p class="temp-large">27°C</p>
+                <p class="details">💧 75% 🌬️ 10km/h</p>
+            </div>
+        </div>
+
+        <h3 class="today-label">Today</h3>
+
+        <div class="row">
+            <div class="small-box active">
+                <div class="time">09:00</div>
+                <div class="icon">🌧️</div>
+                <div class="temp">27℃</div>
+            </div>
+            <div class="small-box">
+                <div class="time">12:00</div>
+                <div class="icon">🌧️</div>
+                <div class="temp">28℃</div>
+            </div>
+            <div class="small-box">
+                <div class="time">15:00</div>
+                <div class="icon">🌤️</div>
+                <div class="temp">28℃</div>
+            </div>
+            <div class="small-box">
+                <div class="time">18:00</div>
+                <div class="icon">☁️</div>
+                <div class="temp">27℃</div>
+            </div>
+            <div class="small-box">
+                <div class="time">21:00</div>
+                <div class="icon">🌙</div>
+                <div class="temp">29℃</div>
+            </div>
+        </div>
+
+        <div class="day-container">
+            <div class="day-row">
+                <div class="time2"><b>Sunday</b>
+                    <p>Dec 19th 2021</p>
+                </div>
+                <div class="icon2">🌧️</div>
+                <div class="temp2">28℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Monday</b>
+                    <p>Dec 20th 2021</p>
+                </div>
+                <div class="icon2">⛈️</div>
+                <div class="temp2">29℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Tuesday</b>
+                    <p>Dec 21st 2021</p>
+                </div>
+                <div class="icon2">⛈️</div>
+                <div class="temp2">27℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Wednesday</b>
+                    <p>Dec 22nd 2021</p>
+                </div>
+                <div class="icon2">🌧️</div>
+                <div class="temp2">28℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Thursday</b>
+                    <p>Dec 23rd 2021</p>
+                </div>
+                <div class="icon2">🌧️</div>
+                <div class="temp2">28℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Friday</b>
+                    <p>Dec 24th 2021</p>
+                </div>
+                <div class="icon2">🌧️</div>
+                <div class="temp2">26℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Saturday</b>
+                    <p>Dec 25th 2021</p>
+                </div>
+                <div class="icon2">🌧️</div>
+                <div class="temp2">27℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Sunday</b>
+                    <p>Dec 26th 2021</p>
+                </div>
+                <div class="icon2">🌧️</div>
+                <div class="temp2">22℃</div>
+            </div>
+            <div class="day-row">
+                <div class="time2"><b>Friday</b>
+                    <p>Dec 28th 2021</p>
+                </div>
+                <div class="icon2">🌧️</div>
+                <div class="temp2">25℃</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

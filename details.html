@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Details</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -13,7 +14,7 @@
       justify-content: center;
       align-items: center;
       background: white;
-      font-family: sans-serif;
+      font-family: 'Roboto', sans-serif;
     }
 
     .container {
@@ -41,14 +42,14 @@
     .title {
       margin-top: 20px;
       font-size: 20px;
-      font-weight: bold;
+       font-weight: lighter;
       color: rgb(117, 115, 115);
     }
 
     .subtitle {
       margin-top: 30px;
       font-size: 15px;
-      color: rgb(117, 115, 115);
+      color:#212a3d
     }
 
     .location {
@@ -62,7 +63,7 @@
     }
 
     .box {
-      background-color: white;
+      background-color: fff;
       border-radius: 20px;
       padding: 20px;
       color: rgb(0, 0, 0);
@@ -75,7 +76,8 @@
     }
 
     .left-info h4 {
-      margin: 5px 0;
+      margin: 7px 0;
+      font-size: 15px;
     }
 
     .right-info {
@@ -102,12 +104,11 @@
     }
 
     .row {
-      background-color: hsl(212, 87%, 77%);
+      background: linear-gradient(to right, rgb(194 216 249), rgb(216 228 249));
       width: 300px;
-      height: 80px;
+      height: 65px;
       display: flex;
       flex-direction: column;
-
       overflow-x: auto;
       margin-top: 40px;
       padding: 20px;
@@ -115,11 +116,10 @@
       font-size: 16px;
       text-align: center;
       gap: 5px;
-
+      border: 2px solid rgb(127 160 206);
     }
 
     .smoll-box {
-      background-color: #dcebfc;
       width: 120px;
       height: 100px;
       display: flex;
@@ -128,11 +128,10 @@
       margin-top: 40px;
       padding: 20px;
       border-radius: 20px;
-      font-size: 16px;
+      font-size: 13px;
       margin-right: 180px;
       border-width: 5px;
-      border-color: #59b1ec;
-
+      border: 2px solid #8db0e4;
     }
   </style>
 </head>
@@ -140,7 +139,7 @@
 <body>
   <div class="container">
     <div class="back" onclick="history.back()">‹</div>
-    <div class="title">Details</div>
+    <div class="title" style="color:#0d182c">Details</div>
     <div class="subtitle">📍 Your Location Now</div>
     <div class="location"><span>Bandung,</span> Indonesia</div>
 
@@ -152,45 +151,44 @@
       </div>
       <div class="right-info">
         <div class="weather-icon">🌧️</div>
-        <button class="weather-btn">☁️ Drizzling</button>
+        <button class="weather-btn" style="background-color:#d8e4f9; border: 2px solid rgb(138 176 225);">☁️ Drizzling</button>
       </div>
     </div>
 
     <div class="row">
-      <div style="margin-right: 180px;">🌡️ <b>Temperature</b></div>
+      <div style="margin-right: 180px;">🌡️ <b style="margin-left: 6px;">Temperature</b></div>
       <div style="margin-top: 7px; font-size: small; color: rgb(117, 115, 115); text-align: left;">
         More temperate than<br>yesterday
       </div>
-      <div style="margin-top: -55px;text-align: right;font-size: 40px;margin-right: 50px;">27<sup
+      <div style="margin-top: -60px;text-align: right;font-size: 40px;margin-right: 50px;"><b>27</b><sup
           style="font-size: 20px;gap: 60px;">°C</sup></div>
       <div style="text-align: right;margin-top:-55px;font-size: 35px;color:rgb(57, 253, 54)">⬈</div>
     </div>
-    <div class="smoll-box">
-      <div> 💧 <b style="margin-left:8px">Humidity</b></div>
+    <div class="smoll-box" style="background: linear-gradient(to right, rgb(194 214 250), rgb(216 228 249));">
+      <div > 💧 <b style="margin-left:8px;font-size: larger;">Humidity</b></div>
       <div style="margin-top: 10px;font-size: 25px;">75%</div>
       <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
       <div style="font-size: small;color:gray;margin-top: 8px;">Less humid than <br>yesterday</div>
     </div>
-    <div class="smoll-box" style="margin-top: 20px;">
-      <div> 💧 <b style="margin-left:8px">Rain Amount</b></div>
+    <div class="smoll-box" style="margin-top: 20px;background: linear-gradient(to right, rgb(194 214 250), rgb(216 228 249));">
+      <div> 🌨️ <b style="margin-left:8px;">Rain Amount</b></div>
       <div style="margin-top: 10px;font-size: 25px;">0.02 in</div>
-      <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
+      <div style="margin-top: -35px;margin-right:20px;font-size: 25px;text-align: right;color:rgb(57, 253, 54); ">⬈</div>
       <div style="font-size: small;color:gray;margin-top: 8px;">More rain amount <br>than yesterday</div>
     </div>
-    <div class="smoll-box" style="margin-top: -300px; margin-right: -190px;">
-      <div> 💧 <b style="margin-left:8px">Wind</b></div>
+    <div class="smoll-box" style="margin-top: -305px; margin-right: -190px;background: linear-gradient(to right, rgb(216 228 249), rgb(216 228 249));">
+      <div> 🌫️ <b style="margin-left:8px;font-size: larger;">Wind</b></div>
       <div style="margin-top: 10px;font-size: 25px;">2 km/h</div>
-      <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
+      <div style="margin-top: -35px;margin-right:17px;font-size: 25px;text-align: right;color:rgb(57, 253, 54)">⬈</div>
       <div style="font-size: small;color:gray;margin-top: 8px;">More windy than <br>yesterday</div>
     </div>
-    <div class="smoll-box" style="margin-top: 20px;margin-left: 370px;">
-      <div> 💧 <b style="margin-left:8px">UV Index</b></div>
+    <div class="smoll-box" style="margin-top: 20px;margin-left: 370px;;background: linear-gradient(to right, rgb(216 228 249), rgb(216 228 249));"">
+      <div> ☀️ <b style="margin-left:8px;font-size: larger;">UV Index</b></div>
       <div style="margin-top: 10px;font-size: 25px;">0.02 in</div>
-      <div style="margin-top: -35px;margin-right:35px;font-size: 25px;text-align: right;color:rgb(255, 20, 20)">⬊</div>
+      <div style="margin-top: -35px;margin-right:20px;font-size: 25px;text-align: right;color:rgb(57, 253, 54)">⬈</div>
       <div style="font-size: small;color:gray;margin-top: 8px;">More rain amount <br>than yesterday</div>
     </div>
-    
-    
+  </div>
 </body>
 
 </html>
